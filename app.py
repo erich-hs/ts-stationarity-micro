@@ -7,10 +7,12 @@ app = Flask(__name__)
 LOG = create_logger(app)
 LOG.setLevel(logging.INFO)
 
+
 @app.route("/")
 def home():
-    html = f"<h3>Time Series stationarity check with ADF and KPSS tests</h3>"
+    html = "<h3>Time Series stationarity check with ADF and KPSS tests</h3>"
     return html.format(format)
+
 
 @app.route("/test_stationarity", methods=["POST"])
 def test_stationarity():
@@ -19,9 +21,9 @@ def test_stationarity():
     """
     json_payload = request.json
     LOG.info(f"JSON payload: {json_payload}")
-    test_results=stationarity.stationarity_test(json_payload["timeseries"])
+    test_results = stationarity.stationarity_test(json_payload["timeseries"])
     return test_results
 
-if __name__=="__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
 
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=5000, debug=True)
