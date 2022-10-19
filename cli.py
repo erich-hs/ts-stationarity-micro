@@ -22,6 +22,7 @@ def stationarity_testcli(timeseries):
         adf_fg="red"
     if kpss_result["Decision"]=="Non-Stationary":
         kpss_fg="red"
+    # Echoing results
     click.echo("ADF: " + click.style(adf_result, fg=adf_fg))
     click.echo("KPSS: " + click.style(kpss_result, fg=kpss_fg))
 

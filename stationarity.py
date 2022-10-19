@@ -30,7 +30,7 @@ def fillna(data, method="Interpolate"):
     elif method.lower()=="ffill":
         data=data.ffill()
     elif method.lower()=="bfill":
-        data=data.bfill
+        data=data.bfill()
     
     return data
 
