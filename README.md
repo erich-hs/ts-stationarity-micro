@@ -42,3 +42,5 @@ It should prompt you for the time series input:
 List-like, comma separated time series: 1, 2, 3, 4
 ```
 After inserting a comma separated example the result should be similar to the output below:
+
+![image](https://user-images.githubusercontent.com/77303576/196686095-4953aeb6-2bd7-4b1e-86ca-d5f7b64756bd.png)
