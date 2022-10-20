@@ -16,7 +16,7 @@ deploy:
 	$(docker login --username AWS --password-stdin public.ecr.aws/d9i8a4o5)
 	docker build -t docker-microservices .
 	docker tag docker-microservices:latest public.ecr.aws/d9i8a4o5/docker-microservices:latest
-	docker push public.ecr.aws/d9i8a4o5/docker-microservices:latest
+	# docker push public.ecr.aws/d9i8a4o5/docker-microservices:latest
 
 all:
 	install lint test format deploy

@@ -1,4 +1,3 @@
-# FROM python:3.9-slim-buster
 FROM public.ecr.aws/lambda/python:3.9
 
 WORKDIR /ts-micro
