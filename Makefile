@@ -12,10 +12,11 @@ format:
 	black *.py
 
 deploy:
+	REPOSITORY_URI=public.ecr.aws/d9i8a4o5/docker-microservices
 	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/d9i8a4o5
-	docker build -t docker-microservices .
-	docker tag docker-microservices:latest public.ecr.aws/d9i8a4o5/docker-microservices:latest
-	docker push public.ecr.aws/d9i8a4o5/docker-microservices:latest
+	docker build -t $REPOSITORY_URI:latest .
+	docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:latest
+	docker push $REPOSITORY_URI:latest
 
 all:
 	install lint test format deploy
