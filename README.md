@@ -4,15 +4,17 @@
 Containerized microservice for Time Series stationarity testing with Augmented Dickey-Fuller (ADF) and Kwiatkowski-Phillips-Schmidt-Shin (KPSS) tests.
 
 ## About this Repository
-This is a template repository of a containerized Python Flask App Microservice that can be deployed locally or on cloud. You can find notes on deploying the Docker image locally, on an AWS Cloud9 environment or on a Google Cloud Shell.
+This is a template repository of a containerized Python Flask Microservice with best CI/CD practices for local deployment or in the cloud.
+
+An AWS CodeBuild workflow is configured to push the latest Docker image to an AWS ECR (Elastic Container Registry) repository via a make deploy command (You can refer to the deploy task in this sample [Makefile](Makefile)). The build is set to trigger on every push to the GitHub repository via buildspec.yml (AWS CodeBuild) and main.yml (GitHub Actions).
 
 ## Local Deployment - Docker
-### Docker Image
+### Docker Image:
 Build image locally
 ```bash
 $ docker build --tag ts-micro .
 ```
-Check the built image
+Check built image
 ```
 $ docker image ls
 ```
@@ -31,7 +33,7 @@ $ curl -d '{"timeseries":[1, 2, 3, 4]}' \
 -X POST http://localhost:8080/test_stationarity
 ```
 
-### Shutting down
+### Shutting down:
 Shut down the container
 ```
 $ docker stop ts-micro-local
@@ -42,7 +44,7 @@ $ docker rm ts-micro-local
 ```
 
 ## Local Deployment - Native Environment
-### To post a sample stationarity test
+### To post a sample stationarity test:
 Add permissions to sample_post.sh:
 ```bash
 $ chmod +x ./sample_post.sh
@@ -58,12 +60,12 @@ Call the python interpeter -c code:
 $ python -c 'import stationarity; print(stationarity.stationarity_test([1, 2, 3, 4]))'
 ```
 
-### To post a request locally:
+### To host the application in the local machine:
 Run the Flask app locally:
 ```bash
 $ python app.py
 ```
-POST request
+POST method
 ```bash
 $ curl -d '{"timeseries":[1, 2, 3, 4]}' \
 -H "Content-Type: application/json" \
