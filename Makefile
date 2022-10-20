@@ -11,7 +11,6 @@ test:
 format:
 	black *.py
 
-#Pushing to AWS ECR
 deploy:
 	aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/d9i8a4o5
 	docker build -t docker-microservices .
