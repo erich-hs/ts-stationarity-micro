@@ -11,6 +11,7 @@ This is a template repository of a containerized Python Flask Microservice with 
 An AWS CodeBuild workflow is configured to push the latest Docker image to an AWS ECR (Elastic Container Registry). You can refer to the deploy task in this sample [Makefile](Makefile). The build is set to trigger on every push to the GitHub repository via buildspec.yml (AWS CodeBuild) and main.yml (GitHub Actions).
 
 ![AWS](png/aws.png)
+
 This microservice template can be deployed in most AWS Elastic IaaS solutions such as Elastic Beanstalk, AWS EKS, and AWS Fargate + AWS ECS. The build is fully integrated within the AWS environment, from the base [Python 3.9 Docker image](https://gallery.ecr.aws/lambda/python) that is pulled from AWS public ECR, to the final development image that is pushed and pulled to the project AWS ECR repository.
 
 The IAM role permissions to push to an ECR repository can be found in this [link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-push.html).
